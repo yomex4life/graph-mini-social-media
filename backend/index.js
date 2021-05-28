@@ -9,7 +9,8 @@ const resolvers = require('./src/resolvers/index')
 
 const server = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers,
+    context: ({req})=>({req}) //take request body and forward to context to access the headers
 })
 
 try {
